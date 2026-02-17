@@ -28,15 +28,15 @@ st.subheader("💎 Mon Butin")
 # On définit les points (ex: 20 min par quête de coréen, 5 min pour le reste)
 points_totaux = 0
 if q1: points_totaux += 20
-if q2: points_totaux += 5
-if q3: points_totaux += 5
+if q2: points_totaux += 2
+if q3: points_totaux += 3
 if q4: points_totaux += 5
-if q5: points_totaux += 5
-if q6: points_totaux += 5
+if q5: points_totaux += 2
+if q6: points_totaux += 3
 
 st.metric(label="Temps d'écran gagné (minutes)", value=f"{points_totaux} min")
 
-if points_totaux >= 45:
+if points_totaux >= 30:
     st.balloons()
     st.success("C'est gagné ! Tu as été super efficace aujourd'hui ! ✨")
 
