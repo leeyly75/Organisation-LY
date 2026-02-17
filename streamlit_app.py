@@ -54,5 +54,14 @@ if st.button("Démarrer le chrono !"):
 
 # --- SECTION 4 : RAPPORT À MAMAN ---
 st.divider()
-if st.button("📤 Envoyer mon rapport à Maman"):
-    st.write(f"Bravo ! Rapport prêt pour Maman Yeonsil : {points_totaux} minutes méritées.")
+# --- SECTION 4 : RAPPORT À MAMAN (Version Message Direct) ---
+st.divider()
+mon_message = f"Maman ! J'ai fini mes missions et j'ai gagne {points_totaux} minutes d'ecran. Tu es d'accord ?"
+
+# WhatsApp으로 바로 연결되는 버튼 (연실님 전화번호를 넣으세요)
+# 예: 33612345678 (프랑스 국가코드 33 포함)
+whatsapp_url = f"https://wa.me/33749472959text={mon_message.replace(' ', '%20')}"
+
+if st.button("📤 Envoyer mon rapport via WhatsApp"):
+    st.write("✅ Clique sur le lien ci-dessous pour m'envoyer le message :")
+    st.markdown(f"[Ouvrir WhatsApp et envoyer mon score]({whatsapp_url})")
