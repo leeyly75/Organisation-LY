@@ -17,9 +17,9 @@ with col1:
     q3 = st.checkbox("🧸 Ranger 5 objets")
 
 with col2:
-    q4 = st.checkbox("🥗 Finir son repas")
+    q4 = st.checkbox("🥗 S'occuper des chons")
     q5 = st.checkbox("👗 Préparer ses habits")
-    q6 = st.checkbox("🎨 Activité créative")
+    q6 = st.checkbox("🎨 Faire le lit")
 
 # --- SECTION 2 : LE CALCULATEUR DE RÉCOMPENSE ---
 st.divider()
