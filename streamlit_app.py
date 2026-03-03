@@ -36,7 +36,7 @@ messages = [
 today_idx = datetime.datetime.now().weekday()
 
 st.markdown("<h1>Bonjour, ma princesse ! ✨</h1>", unsafe_allow_html=True)
-st.markdown(f"<p class='message'>{messages[today_idx]}</p>", unsafe_allow_html=True)
+st.markdown(f'<div class="tableau">{messages[today_idx]}</div>', unsafe_allow_html=True)
 
 st.divider()
 
