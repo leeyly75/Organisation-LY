@@ -35,11 +35,11 @@ col1, col2 = st.columns(2)
 with col1:
     q1 = st.checkbox("📚 10 min de Coréen")
     q2 = st.checkbox("🐹 S'occuper des chons")
-    q3 = st.checkbox("🛏️ Ranger 5 objets")
+    q3 = st.checkbox("🎨 Ranger 5 objets")
 with col2:
-    q4 = st.checkbox("🐹 Faire mon lit")
-    q5 = st.checkbox("🛏️ Préparer mes habits")
-    q6 = st.checkbox("🎁 Bonus Aider Maman")
+    q4 = st.checkbox("🛏️ Faire mon lit")
+    q5 = st.checkbox("🎀 Préparer mes habits")
+    q6 = st.checkbox("🎁 Bonus-Aider Maman")
 
 points = (q1*10) + (q2*2) + (q3*2) + (q4*2) + (q5*2) + (q6*2)
 
