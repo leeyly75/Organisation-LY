@@ -1,67 +1,69 @@
 import streamlit as st
-import time
+import datetime
 
-# Configuration style "Lusha" : joyeux et clair
-st.set_page_config(page_title="Ma Mission Quotidienne", page_icon="🦊")
+1. 페이지 설정
+st.set_page_config(page_title="Ma Mission ✨", page_icon="🎀")
 
-st.title("🦊 Ma Mission : En route vers la récompense !")
-st.write("Complète tes quêtes pour gagner ton temps de liberté.")
+2. 핑크색 스타일 적용
+st.markdown("""
+<style>
+.main { background-color: #FFF0F5; }
+h1 { color: #FF69B4; text-align: center; margin-bottom: 0; }
+.message { text-align: center; font-size: 1.2rem; color: #555; margin-bottom: 20px; font-style: italic; }
+.stCheckbox { font-size: 20px; padding: 10px; background: white; border-radius: 10px; margin-bottom: 10px; border: 1px solid #FFB6C1; }
+</style>
+""", unsafe_allow_html=True)
 
-# --- SECTION 1 : LA ROUTINE (Focus TDAH) ---
-st.subheader("📋 Mes Quêtes du jour")
+3. 요일별 자동 메시지 설정
+messages = [
+"Une nouvelle semaine pleine de joie ! 🌸",       # 월
+"Tu es ma plus belle réussite. ✨",               # 화
+"Petit à petit, tu deviens incroyable. 🎀",       # 수
+"Ton sourire illumine ma vie. ☀️",                # 목
+"Presque le week-end ! Courage ! 💪",             # 금
+"Profite bien de ta journée, l'artiste ! 🎨",     # 토
+"Je suis tellement fière de toi. 💕"              # 일
+]
+
+오늘 요일 가져오기 (0=월요일, 6=일요일)
+today_idx = datetime.datetime.now().weekday()
+
+4. 메인 타이틀 & 자동 메시지 출력
+st.markdown("<h1>Bonjour, ma princesse ! ✨</h1>", unsafe_allow_html=True)
+st.markdown(f"<p class='message'>{messages[today_idx]}</p>", unsafe_allow_html=True)
+
+st.divider()
+
+5. 미션 리스트
+st.subheader("🌸 Mes missions d'aujourd'hui")
+
 col1, col2 = st.columns(2)
-
 with col1:
-    q1 = st.checkbox("📚 10 min de Coréen")
-    q2 = st.checkbox("🐹 S'occuper des chons")
-    q3 = st.checkbox("🧸 Ranger 5 objets")
-
+q1 = st.checkbox("📚 10 min de Coréen")
+q2 = st.checkbox("🦷 Dents et appareil")
+q3 = st.checkbox("🛏️ Faire mon lit")
 with col2:
-    q4 = st.checkbox("👗 Préparer ses habits")
-    q5 = st.checkbox("🛏️ Faire le lit")
-    q6 = st.checkbox("🛏️ Aider maman - pliage de linge, ménage, etc")
+q4 = st.checkbox("🐹 S'occuper des chons")
+q5 = st.checkbox("👗 Préparer mes habits")
+q6 = st.checkbox("🎁 Bonus Aider Maman")
 
-# --- SECTION 2 : LE CALCULATEUR DE RÉCOMPENSE ---
+6. 점수 계산
+points = (q110) + (q25) + (q35) + (q410) + (q55) + (q65)
+
 st.divider()
-st.subheader("💎 Mon Butin")
+st.write(f"### 💖 Score total : {points} / 40")
 
-# On définit les points (ex: 20 min par quête de coréen, 5 min pour le reste)
-points_totaux = 0
-if q1: points_totaux += 20
-if q2: points_totaux += 2
-if q3: points_totaux += 3
-if q4: points_totaux += 5
-if q5: points_totaux += 2
-if q6: points_totaux += 3
+7. 성공 이벤트
+if points >= 30:
+st.balloons()
+st.success(f"Bravo ! Tu as gagné {points} minutes d'écran ! 🎀")
+elif points > 0:
+st.info("Encore un petit effort ! 💕")
 
-st.metric(label="Temps d'écran gagné (minutes)", value=f"{points_totaux} min")
+8. 엄마에게 보고하기
+mon_tel = "33749472959"
+msg = f"Maman ! J'ai fini mes missions et j'ai gagne {points} minutes d'ecran !"
+whatsapp_url = f"https://wa.me/{mon_tel}?text={msg.replace(' ', '%20')}"
 
-if points_totaux >= 30:
-    st.balloons()
-    st.success("C'est gagné ! Tu as été super efficace aujourd'hui ! ✨")
-
-# --- SECTION 3 : LE CHRONO (Pour aider à se concentrer) ---
-st.divider()
-st.subheader("⏱️ Chrono Focus")
-duree = st.number_input("Combien de minutes pour ta tâche ?", 1, 30, 10)
-if st.button("Démarrer le chrono !"):
-    with st.empty():
-        for i in range(duree * 60, 0, -1):
-            mins, secs = divmod(i, 60)
-            st.header(f"⏳ {mins:02d}:{secs:02d}")
-            time.sleep(1)
-        st.header("✅ Temps fini ! Bravo !")
-
-# --- SECTION 4 : RAPPORT À MAMAN ---
-st.divider()
-# --- SECTION 4 : RAPPORT À MAMAN (Version Message Direct) ---
-st.divider()
-mon_message = f"Maman ! J'ai fini mes missions et j'ai gagne {points_totaux} minutes d'ecran. Tu es d'accord ?"
-
-# WhatsApp으로 바로 연결되는 버튼 (연실님 전화번호를 넣으세요)
-# 예: 33612345678 (프랑스 국가코드 33 포함)
-whatsapp_url = f"https://wa.me/33749472959?text={mon_message.replace(' ', '%20')}"
-
-if st.button("📤 Envoyer mon rapport via WhatsApp"):
-    st.write("✅ Clique sur le lien ci-dessous pour m'envoyer le message :")
-    st.markdown(f"[Ouvrir WhatsApp et envoyer mon score]({whatsapp_url})")
+if st.button("📤 Envoyer mon rapport à Maman"):
+st.markdown(f"### ")
