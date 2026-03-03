@@ -13,13 +13,13 @@ col1, col2 = st.columns(2)
 
 with col1:
     q1 = st.checkbox("📚 10 min de Coréen")
-    q2 = st.checkbox("🦷 Se brosser les dents et nettoyer l'appareil")
+    q2 = st.checkbox("🐹 S'occuper des chons")
     q3 = st.checkbox("🧸 Ranger 5 objets")
 
 with col2:
-    q4 = st.checkbox("🐹 S'occuper des chons")
-    q5 = st.checkbox("👗 Préparer ses habits")
-    q6 = st.checkbox("🛏️ Faire le lit")
+    q4 = st.checkbox("👗 Préparer ses habits")
+    q5 = st.checkbox("🛏️ Faire le lit")
+    q6 = st.checkbox("🛏️ Aider maman - pliage de linge, ménage, etc")
 
 # --- SECTION 2 : LE CALCULATEUR DE RÉCOMPENSE ---
 st.divider()
