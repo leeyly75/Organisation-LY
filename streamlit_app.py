@@ -34,19 +34,19 @@ st.subheader("🌸 Mes missions d'aujourd'hui")
 col1, col2 = st.columns(2)
 with col1:
     q1 = st.checkbox("📚 10 min de Coréen")
-    q2 = st.checkbox("🦷 Dents et appareil")
-    q3 = st.checkbox("🛏️ Faire mon lit")
+    q2 = st.checkbox("🐹 S'occuper des chons")
+    q3 = st.checkbox("🛏️ Ranger 5 objets")
 with col2:
-    q4 = st.checkbox("🐹 S'occuper des chons")
-    q5 = st.checkbox("👗 Préparer mes habits")
+    q4 = st.checkbox("🐹 Faire mon lit")
+    q5 = st.checkbox("🛏️ Préparer mes habits")
     q6 = st.checkbox("🎁 Bonus Aider Maman")
 
-points = (q1*10) + (q2*5) + (q3*5) + (q4*10) + (q5*5) + (q6*5)
+points = (q1*10) + (q2*2) + (q3*2) + (q4*2) + (q5*2) + (q6*2)
 
 st.divider()
-st.write(f"### 💖 Score total : {points} / 40")
+st.write(f"### 💖 Score total : {points} / 30")
 
-if points >= 30:
+if points >= 24:
     st.balloons()
     st.success(f"Bravo ! Tu as gagné {points} minutes d'écran ! 🎀")
 elif points > 0:
