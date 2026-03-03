@@ -6,8 +6,19 @@ st.set_page_config(page_title="Ma Mission ✨", page_icon="🎀")
 st.markdown("""
     <style>
     .main { background-color: #FFF0F5; }
-    h1 { color: #FF69B4; text-align: center; margin-bottom: 0; }
-    .message { text-align: center; font-size: 1.2rem; color: #555; margin-bottom: 20px; font-style: italic; }
+    h1 { color: #FF69B4; text-align: center; margin-bottom: 20px; }
+    .tableau {
+        background-color: #1E3F35; 
+        color: white;
+        padding: 25px;
+        border: 8px solid #8B4513; 
+        border-radius: 15px;
+        text-align: center;
+        font-family: 'Comic Sans MS', cursive, sans-serif;
+        font-size: 1.3rem;
+        box-shadow: 5px 5px 10px rgba(0,0,0,0.2);
+        margin-bottom: 25px;
+    }
     .stCheckbox { font-size: 20px; padding: 10px; background: white; border-radius: 10px; margin-bottom: 10px; border: 1px solid #FFB6C1; }
     </style>
     """, unsafe_allow_html=True)
