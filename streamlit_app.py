@@ -52,12 +52,12 @@ with col2:
     q5 = st.checkbox("🎀 Préparer mes habits")
     q6 = st.checkbox("🎁 Bonus-Aider Maman")
 
-points = (q1*10) + (q2*2) + (q3*2) + (q4*2) + (q5*2) + (q6*2)
+points = (q1*20) + (q2*2) + (q3*2) + (q4*2) + (q5*2) + (q6*2)
 
 st.divider()
 st.write(f"### 💖 Score total : {points} / 30")
 
-if points >= 24:
+if points >= 28:
     st.balloons()
     st.success(f"Bravo ! Tu as gagné {points} minutes d'écran ! 🎀")
 elif points > 0:
