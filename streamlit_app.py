@@ -15,7 +15,7 @@ st.markdown("""
         border-radius: 15px;
         text-align: center;
         font-family: 'Comic Sans MS', cursive, sans-serif;
-        font-size: 1.3rem;
+        font-size: 2.5rem;
         box-shadow: 5px 5px 10px rgba(0,0,0,0.2);
         margin-bottom: 25px;
     }
